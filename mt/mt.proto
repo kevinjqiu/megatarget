@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mt;
+
+message Target {
+    string addr = 1;
+}
+
+message ListTargetResponse {
+    repeated Target targets = 1;
+}
+
+message ListTargetParams {}
+
+message NewTargetParams {
+    string addr = 1;
+}
+
+message NewTargetResponse {}
+
+service Targets {
+    rpc List(ListTargetParams) returns (ListTargetResponse) {}
+    rpc New(NewTargetParams) returns (NewTargetResponse) {}
+}
